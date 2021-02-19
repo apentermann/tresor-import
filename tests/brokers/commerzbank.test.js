@@ -5,7 +5,6 @@ import {
   buySamples,
   dividendSamples,
   transactionReport,
-  ignoredSamples,
 } from './__mocks__/commerzbank';
 
 describe('Broker: commerzbank', () => {
@@ -370,17 +369,6 @@ describe('Broker: commerzbank', () => {
         fee: 0,
         tax: 0,
       }); */
-    });
-  });
-
-
-  describe('Validate all ignored statements', () => {
-    test('All ignored statements return status 7 and no activities', () => {
-      ignoredSamples.forEach(pages => {
-        const result = commerzbank.parsePages(pages);
-        expect(result.status).toEqual(7);
-        expect(result.activities.length).toEqual(0);
-      });
     });
   });
 
